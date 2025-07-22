@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Blue/Yellow gradient theme */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 15 25% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 15 25% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 220 100% 60%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 210 30% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 210 30% 12%;
+    --muted-foreground: 220 20% 65%;
+
+    --accent: 50 100% 65%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 62.8% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 30% 15%;
+    --input: 210 30% 12%;
+    --ring: 220 100% 60%;
+
+    --radius: 0.5rem;
+
+    /* Gaming specific colors - Blue/Yellow theme */
+    --gaming-blue: 220 100% 60%;
+    --gaming-yellow: 50 100% 65%;
+    --gaming-dark: 0 0% 5%;
+    --gaming-card: 15 25% 8%;
+    --gaming-border: 220 100% 60%;
+
+    /* Blue/Yellow Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 60%), hsl(50 100% 65%));
+    --gradient-card: linear-gradient(145deg, hsl(15 25% 8%), hsl(10 20% 6%));
+    --gradient-glow: linear-gradient(135deg, hsl(220 100% 60% / 0.3), hsl(50 100% 65% / 0.2));
+
+    /* Shadows and effects */
+    --shadow-glow: 0 0 40px hsl(220 100% 60% / 0.3);
+    --shadow-card: 0 8px 32px hsl(0 0% 2% / 0.4);
+
+    /* Animations & Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-spring: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Enhanced Typography */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+
+    /* Spacing Scale */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 15 25% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 15 25% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 220 100% 60%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 210 30% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 210 30% 12%;
+    --muted-foreground: 220 20% 65%;
+
+    --accent: 50 100% 65%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 62.8% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 30% 15%;
+    --input: 210 30% 12%;
+    --ring: 220 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Enhanced animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px hsl(0 0% 0% / 0.3);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--gaming-blue) / 0.6);
+  }
+
+  /* Loading skeleton animations */
+  .skeleton {
+    background: linear-gradient(90deg,
+      hsl(var(--muted)) 25%,
+      hsl(var(--muted-foreground) / 0.1) 50%,
+      hsl(var(--muted)) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--gaming-blue) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--gaming-blue) / 0.6);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .responsive-text {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+}
