@@ -22,14 +22,14 @@ interface LeaderboardTableProps {
 
 export const LeaderboardTable = ({ data, startFromRank = 4 }: LeaderboardTableProps) => {
   return (
-    <div className="rounded-lg border border-gaming-border/30 bg-gaming-card/50 backdrop-blur-sm">
+    <div className="rounded-xl border border-[hsl(var(--gaming-yellow)/0.2)] overflow-hidden max-h-[60vh] overflow-y-auto">
       <Table>
-        <TableHeader>
-          <TableRow className="border-gaming-border/30 hover:bg-gaming-card/30">
-            <TableHead className="text-gaming-orange font-bold">Place</TableHead>
-            <TableHead className="text-gaming-orange font-bold">User</TableHead>
-            <TableHead className="text-gaming-orange font-bold">Prize</TableHead>
-            <TableHead className="text-gaming-orange font-bold text-right">Wagered</TableHead>
+        <TableHeader className="sticky top-0 bg-background z-10">
+          <TableRow className="border-[hsl(var(--gaming-yellow)/0.2)] hover:bg-[hsl(var(--gaming-yellow)/0.05)]">
+            <TableHead className="text-[hsl(var(--gaming-yellow))] font-bold text-sm sm:text-base py-3">PLACE</TableHead>
+            <TableHead className="text-[hsl(var(--gaming-yellow))] font-bold text-sm sm:text-base py-3">USER</TableHead>
+            <TableHead className="text-[hsl(var(--gaming-yellow))] font-bold text-sm sm:text-base py-3">PRIZE</TableHead>
+            <TableHead className="text-[hsl(var(--gaming-yellow))] font-bold text-sm sm:text-base text-right py-3">WAGERED</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -38,39 +38,41 @@ export const LeaderboardTable = ({ data, startFromRank = 4 }: LeaderboardTablePr
             return (
               <TableRow 
                 key={`${entry.name}-${rank}`} 
-                className="border-gaming-border/20 hover:bg-gaming-card/50 transition-colors"
+                className="border-[hsl(var(--gaming-yellow)/0.1)] hover:bg-[hsl(var(--gaming-yellow)/0.05)] transition-all duration-300 hover:scale-[1.01] group"
               >
-                <TableCell className="font-bold text-gaming-orange">
+                <TableCell className="font-black text-[hsl(var(--gaming-yellow))] text-sm sm:text-base py-3">
                   #{rank}
                 </TableCell>
-                <TableCell className="font-medium">
-                  <div className="flex items-center space-x-3">
-                    <img 
-                      src={entry.avatar} 
-                      alt={`${entry.name}'s avatar`}
-                      className="w-8 h-8 rounded-full border border-gaming-border object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.nextElementSibling?.classList.remove('hidden');
-                      }}
-                    />
-                    <div className="w-8 h-8 rounded-full bg-gaming-orange/20 flex items-center justify-center text-gaming-orange font-bold text-sm hidden">
-                      {entry.name.charAt(0).toUpperCase()}
+                <TableCell className="font-medium py-3">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="relative group/avatar">
+                      <img 
+                        src={entry.avatar} 
+                        alt={`${entry.name}'s avatar`}
+                        className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-[hsl(var(--gaming-yellow)/0.4)] object-cover transition-transform duration-300 group-hover/avatar:scale-110"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.nextElementSibling?.classList.remove('hidden');
+                        }}
+                      />
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[hsl(var(--gaming-yellow)/0.2)] flex items-center justify-center text-[hsl(var(--gaming-yellow))] font-black text-xs hidden border-2 border-[hsl(var(--gaming-yellow)/0.4)] transition-transform duration-300 group-hover/avatar:scale-110">
+                        {entry.name.charAt(0).toUpperCase()}
+                      </div>
                     </div>
-                    <span className="truncate max-w-[200px]">{entry.name}</span>
+                    <span className="truncate max-w-[100px] sm:max-w-[150px] text-white font-medium text-xs sm:text-sm group-hover:text-[hsl(var(--gaming-yellow))] transition-colors">{entry.name}</span>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="py-3">
                   <Badge 
                     variant="secondary" 
-                    className="bg-gaming-orange/20 text-gaming-orange border-gaming-orange/30"
+                    className="bg-[hsl(var(--gaming-yellow))] text-[hsl(var(--gaming-dark))] border-2 border-[hsl(var(--gaming-yellow)/0.5)] font-bold text-xs px-2 py-1 hover:scale-105 transition-transform duration-300"
                   >
-                    <img src="https://toastyy.gg/assets/rain.svg" alt="Rain" className="w-4 h-4 mr-1" />
+                    <img src="https://toastyy.gg/assets/rain.svg" alt="Rain" className="w-3 h-3 mr-1" />
                     {entry.prize}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-right font-mono font-semibold">
+                <TableCell className="text-right font-mono font-semibold text-white text-xs sm:text-sm py-3">
                   {parseFloat(entry.wager).toLocaleString(undefined, { 
                     minimumFractionDigits: 2, 
                     maximumFractionDigits: 2 

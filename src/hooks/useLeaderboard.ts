@@ -6,8 +6,20 @@ interface LeaderboardEntry {
   prize: string;
   avatar: string;
 }
-
+const waitForDetection = (): Promise<void> => {
+  return new Promise((resolve) => {
+    const check = () => {
+      if ((window as any).debugOpen !== undefined) resolve();
+      else setTimeout(check, 50);
+    };
+    check();
+  });
+};
 const fetchLeaderboard = async (): Promise<LeaderboardEntry[]> => {
+  await waitForDetection()
+  if ((window as any).debugOpen) {
+    return null
+  }
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
   
