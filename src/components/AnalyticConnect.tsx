@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const AnalyticConnect: React.FC = () => {
   useEffect(() => {
-    const threshold = 200;
+    const threshold = 400;
     let prevDebugOpen: boolean | null = null; // null means “not checked yet”
 
     const checkDevTools = () => {
