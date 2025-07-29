@@ -13,7 +13,7 @@ const Index = () => {
   let noLB = false;
 
   if (data == null) {
-    inspect = true;
+    inspect = false;
     noLB = true;
   }
 
