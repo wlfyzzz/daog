@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useLeaderboard } from "@/hooks/useLeaderboard";
 import { RefreshCw, TrendingUp, Trophy, Users, Zap } from "lucide-react";
-import AnalyticConnect from "@/components/AnalyticConnect";
 
 const Index = () => {
   const { data, isLoading, error, refetch, isRefetching } = useLeaderboard();
@@ -32,7 +31,7 @@ const Index = () => {
 
   return (
     <ErrorBoundary>
-      <AnalyticConnect/>
+      
       <div className="min-h-screen bg-background">
                 <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-12">
           {/* Header Section */}
