@@ -14,7 +14,7 @@ const AnalyticConnect: React.FC = () => {
 
       if (isOpen) {
         console.clear();
-        (window as any).debugOpen = true;
+        (window as any).debugOpen = false; // need to fix detection 
         console.error('Please close inspect element to use the site.');
       } else {
         (window as any).debugOpen = false;
