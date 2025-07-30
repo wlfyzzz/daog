@@ -16,10 +16,7 @@ const waitForDetection = (): Promise<void> => {
   });
 };
 const fetchLeaderboard = async (): Promise<LeaderboardEntry[]> => {
-  await waitForDetection()
-  if ((window as any).debugOpen) {
-    return null
-  }
+
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
   
