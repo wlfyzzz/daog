@@ -36,7 +36,7 @@ const fetchLeaderboard = async (): Promise<LeaderboardEntry[]> => {
     }
     
     const data = await response.json();
-    return data || [];
+    return data.participants || [];
   } catch (error: any) {
     clearTimeout(timeoutId);
     
