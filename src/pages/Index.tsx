@@ -226,7 +226,7 @@ data = data.participants || [];
             {/* No Leaderboard */}
             {noLB && !isLoading && !inspect && ( 
               <div className="text-center text-muted-foreground text-lg mb-12">
-                No leaderboard data available yet.
+                Leaderboard ended.
               </div>
             )}
                       {inspect && ( 
