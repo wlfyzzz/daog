@@ -21,7 +21,7 @@ const fetchLeaderboard = async (): Promise<LeaderboardEntry[]> => {
   const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
   
   try {
-    const response = await fetch("https://api.wlfyzz.net/syskeys/leaderboard", {
+    const response = await fetch("https://api.wlfyzz.net/syskeys/rain", {
       signal: controller.signal,
       headers: {
         'Accept': 'application/json',
