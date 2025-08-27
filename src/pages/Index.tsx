@@ -19,9 +19,13 @@ const LeaderboardNotice = () => {
         This leaderboard is currently inactive due to non-payment.
       </p>
       <div className="flex justify-center items-center gap-3">
-        <FaDiscord className="text-2xl text-indigo-500" />
+        <img
+          src="https://www.svgrepo.com/show/353655/discord-icon.svg"
+          alt="Discord"
+          className="w-6 h-6"
+        />
         <a
-          href="https://discord.com/users/123456789012345678" // Replace with your actual Discord user ID
+          href="https://discord.com/users/1379948699127644160" // Replace with your actual Discord user ID
           target="_blank"
           rel="noopener noreferrer"
           className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition"
@@ -32,6 +36,7 @@ const LeaderboardNotice = () => {
     </div>
   );
 };
+
 
 const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
   const calculateTimeLeft = () => {
