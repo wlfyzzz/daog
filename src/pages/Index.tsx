@@ -14,28 +14,30 @@ import { FaDiscord } from 'react-icons/fa'; // react-icons still works with Vite
 
 const LeaderboardNotice = () => {
   return (
-    <div className="text-center text-muted-foreground text-lg mb-12">
-      <p className="mb-4">
+    <div className="max-w-xl mx-auto p-6 border border-muted rounded-lg bg-muted/20 shadow-sm text-center mb-12">
+      <p className="text-lg text-muted-foreground mb-4">
         This leaderboard is currently inactive due to non-payment.
       </p>
-      <div className="flex justify-center items-center gap-3">
 
+      <div className="flex justify-center">
         <a
-          href="https://discord.com/users/1379948699127644160" // Replace with your actual Discord user ID
+          href="https://discord.com/users/1379948699127644160"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition"
+          className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition-all duration-200"
         >
-                 <img
-          src="https://www.svgrepo.com/show/353655/discord-icon.svg"
-          alt="Discord"
-          className="w-6 h-6"
-        /> Contact @wlfyzz.dev on Discord
+          <img
+            src="https://www.svgrepo.com/show/353655/discord-icon.svg"
+            alt="Discord"
+            className="w-5 h-5 align-middle"
+          />
+          Contact @wlfyzz.dev on Discord
         </a>
       </div>
     </div>
   );
 };
+
 
 
 const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
