@@ -101,6 +101,16 @@ const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
 
   const Index = () => {
 let { data, isLoading, error, refetch, isRefetching } = useLeaderboard();
+      const isUnpaid = true; // 👈 Change this to false when paid
+
+  // Show notice only
+  if (isUnpaid) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background px-4">
+        <LeaderboardNotice />
+      </div>
+    );
+  }
 
 if (isLoading || !data) {
   return <div className="text-center text-muted-foreground"></div>;
@@ -247,10 +257,6 @@ data = data.participants || [];
               </div>
             </div>{ends && <CountdownTimer targetDate={ends} />}
 
-            {/* Error State */}
-            {error && (
-<LeaderboardNotice/>
-            )}
 
             {/* No Leaderboard */}
             {noLB && !isLoading && !inspect && ( 
