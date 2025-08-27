@@ -33,8 +33,6 @@ const LeaderboardNotice = () => {
   );
 };
 
-export default LeaderboardNotice;
-
 const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
   const calculateTimeLeft = () => {
     const difference = new Date(targetDate).getTime() - new Date().getTime();
