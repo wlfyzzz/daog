@@ -19,18 +19,18 @@ const LeaderboardNotice = () => {
         This leaderboard is currently inactive due to non-payment.
       </p>
       <div className="flex justify-center items-center gap-3">
-        <img
-          src="https://www.svgrepo.com/show/353655/discord-icon.svg"
-          alt="Discord"
-          className="w-6 h-6"
-        />
+
         <a
           href="https://discord.com/users/1379948699127644160" // Replace with your actual Discord user ID
           target="_blank"
           rel="noopener noreferrer"
           className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition"
         >
-          Contact @wlfyzz.dev on Discord
+                 <img
+          src="https://www.svgrepo.com/show/353655/discord-icon.svg"
+          alt="Discord"
+          className="w-6 h-6"
+        /> Contact @wlfyzz.dev on Discord
         </a>
       </div>
     </div>
