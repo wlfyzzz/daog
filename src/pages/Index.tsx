@@ -10,6 +10,30 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaDiscord } from 'react-icons/fa'; // react-icons still works with Vite
+
+const LeaderboardNotice = () => {
+  return (
+    <div className="text-center text-muted-foreground text-lg mb-12">
+      <p className="mb-4">
+        This leaderboard is currently inactive due to non-payment.
+      </p>
+      <div className="flex justify-center items-center gap-3">
+        <FaDiscord className="text-2xl text-indigo-500" />
+        <a
+          href="https://discord.com/users/123456789012345678" // Replace with your actual Discord user ID
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition"
+        >
+          Contact @wlfyzz.dev on Discord
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default LeaderboardNotice;
 
 const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
   const calculateTimeLeft = () => {
@@ -225,12 +249,7 @@ data = data.participants || [];
 
             {/* Error State */}
             {error && (
-              <div className="mb-8">
-                <NetworkErrorDisplay
-                  onRetry={handleRetry}
-                  message={error.message || "Failed to load leaderboard data. Please try again."}
-                />
-              </div>
+<LeaderboardNotice/>
             )}
 
             {/* No Leaderboard */}
