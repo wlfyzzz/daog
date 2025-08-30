@@ -106,7 +106,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
 
   const Index = () => {
 let { data, isLoading, error, refetch, isRefetching } = useLeaderboard();
-      const isUnpaid = true; // 👈 Change this to false when paid
+      const isUnpaid = false; // 👈 Change this to false when paid
 
   // Show notice only
   if (isUnpaid) {
